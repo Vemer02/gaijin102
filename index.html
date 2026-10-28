@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GAIJIN Авто из Японии</title>
+<meta name="description" content="Автомобили из Японии под заказ в Уфе и по всей России: подбор с японских аукционов, проверка аукционного листа, расчёт полной стоимости и сопровождение до получения.">
+<meta property="og:title" content="GAIJIN — авто под заказ из Японии в Уфе">
+<meta property="og:description" content="Подбор и покупка с японских аукционов, проверка автомобиля, расчёт стоимости и сопровождение до получения.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gaijin102.ru">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "GAIJIN",
+  "description": "Автомобили под заказ с японских аукционов",
+  "url": "https://gaijin102.ru",
+  "telephone": "+7 917 431-75-26",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "бульвар Ибрагимова, 21",
+    "addressLocality": "Уфа",
+    "postalCode": "450006",
+    "addressCountry": "RU"
+  },
+  "sameAs": [
+    "https://t.me/gaijin102",
+    "https://www.youtube.com/@gaijin102youtube",
+    "https://vk.ru/gaijin102vk",
+    "https://max.ru/channel_gaijin102",
+    "https://www.instagram.com/gaijin102",
+    "https://yandex.ru/maps/org/gaijin/176719976499/",
+    "https://2gis.ru/ufa/firm/70000001113292158"
+  ]
+}
+</script>
+<style>
+/* Layout: светлый «аукционный лист» и оранжевый диск солнца. Асимметричный герой, маршрут Япония → Владивосток → Уфа как ось страницы, солнце садится в форме заявки. Сознательно одна светлая тема. */
+:root{
+  --paper:#FAF9F7;
+  --paper-2:#F2EEE9;
+  --card:#FFFFFF;
+  --ink:#17120D;
+  --ink-2:#5E554C;
+  --line:#E5DED5;
+  --sun:#FF6B1A;
+  --sun-hi:#FFA35E;
+  --sun-ink:#AE3D02;
+  --sun-soft:#FFEBDD;
+  --ok:#1E7A4C;
+  --err:#BF2A1C;
+  --f-display:"Dela Gothic One","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Onest","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --hdr:64px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--sun-ink);outline-offset:3px;border-radius:2px}
+[id]{scroll-margin-top:calc(var(--hdr) + env(safe-area-inset-top,0px) + 12px)}
+
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px, env(safe-area-inset-left,0px));padding-right:max(32px, env(safe-area-inset-right,0px))}}
+
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sun);flex:none}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:4px;border:1px solid transparent;font:600 15px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn:active{transform:translateY(1px)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-sun:hover{background:var(--ink);color:var(--paper)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:14px}
+.btn-lg{min-height:56px;padding:0 28px;font-size:16px}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* Шапка */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(250,249,247,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.hdr.scrolled{border-bottom-color:var(--line)}
+.hdr-in{display:flex;align-items:center;gap:24px;height:var(--hdr)}
+.logo{display:inline-flex;align-items:center;gap:10px;font:400 22px/1 var(--f-display);letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.logo-sun{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--sun-hi),var(--sun) 60%)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{font-size:14px;font-weight:500;text-decoration:none;color:var(--ink-2);transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.hdr-act{display:flex;align-items:center;gap:16px}
+.hdr-phone{font:500 14px/1 var(--f-mono);text-decoration:none;white-space:nowrap}
+@media (max-width:1020px){.nav{display:none}.hdr-act{margin-left:auto}}
+@media (max-width:560px){.hdr-phone{display:none}}
+
+/* Герой */
+.hero{position:relative;overflow-x:clip;padding-block:clamp(28px,6vw,72px) clamp(40px,7vw,88px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:24px}
+.hero-copy{position:relative;z-index:2;display:grid;gap:26px;min-width:0}
+.h1{font:400 clamp(44px,7.4vw,104px)/.98 var(--f-display);letter-spacing:-.01em}
+.h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.h1 .ln>span{display:inline-block;animation:lineUp 1s var(--ease) both}
+.h1 .ln:nth-child(2)>span{animation-delay:.09s}
+.h1 .ln:nth-child(3)>span{animation-delay:.18s}
+.h1 .hl{color:var(--sun-ink)}
+@keyframes lineUp{from{transform:translateY(105%)}}
+.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.55;color:var(--ink-2);max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.rates{display:flex;flex-wrap:wrap;gap:10px}
+.rate-chip{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);text-decoration:none;font-size:14px;transition:border-color .2s}
+.rate-chip:hover{border-color:var(--ink)}
+.rate-chip b{font:400 16px/1 var(--f-display)}
+.rate-chip .st{color:var(--sun);letter-spacing:1px}
+
+.hero-visual{position:relative;z-index:1;grid-column:2;grid-row:1;min-width:0}
+.sun-wrap{position:relative;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:1;will-change:transform}
+.sun-anim{position:absolute;inset:0;animation:rise 1.4s var(--ease) both .1s}
+@keyframes rise{from{transform:translateY(48px) scale(.9);opacity:0}}
+.disc{position:absolute;inset:11%;border-radius:50%;background:radial-gradient(circle at 34% 28%,var(--sun-hi) 0%,var(--sun) 52%,#F1590C 100%);box-shadow:0 40px 90px -30px rgba(255,107,26,.55);display:grid;place-items:center;overflow:hidden}
+.disc::after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(180deg,transparent 0 9px,rgba(255,255,255,.07) 9px 10px)}
+.kanji{font:400 clamp(56px,8vw,124px)/1 var(--f-display);color:var(--card);writing-mode:vertical-rl;letter-spacing:.06em;opacity:.95;position:relative;z-index:1}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 70s linear infinite}
+.ring text{font:500 13px var(--f-mono);letter-spacing:.18em;fill:var(--ink-2);text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lot{grid-column:2;grid-row:1;align-self:end;justify-self:start;position:relative;z-index:3;margin:0 0 -5% -12%;width:min(290px,100%);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 20px;box-shadow:0 24px 60px -28px rgba(23,18,13,.35);display:grid;gap:6px;animation:rise 1.2s var(--ease) both .55s}
+.lot .mono{color:var(--sun-ink)}
+.lot-model{font-weight:700;font-size:18px}
+.lot-price{font:400 28px/1.1 var(--f-display)}
+.lot-note{font-size:13px;color:var(--ink-2)}
+
+@media (max-width:859px){
+  .hero{padding-block:8px 48px}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-visual{position:absolute;top:-10vw;right:-22vw;width:74vw;grid-column:auto;grid-row:auto;pointer-events:none}
+  .ring{display:none}
+  .kanji{opacity:.45}
+  .hero-copy{padding-top:32vw}
+  .lot{grid-column:1;grid-row:auto;justify-self:stretch;margin:0;width:100%}
+}
+
+/* Бегущая строка моделей */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:20px;background:var(--paper)}
+.mq-track{display:flex;width:max-content;animation:mq 60s linear infinite}
+.mq-track span{display:inline-flex;align-items:center;gap:32px;padding-right:32px;font:400 clamp(18px,2.2vw,26px)/1 var(--f-display);white-space:nowrap}
+.mq-track span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--sun)}
+.marquee:hover .mq-track{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Секции */
+.sec{padding-block:clamp(64px,10vw,128px)}
+.sec-head{display:grid;gap:16px;max-width:760px;margin-bottom:clamp(36px,5vw,64px)}
+.h2{font:400 clamp(30px,4.4vw,56px)/1.06 var(--f-display);letter-spacing:-.005em}
+.sub{font-size:17px;color:var(--ink-2);max-width:40em}
+
+/* Подбор */
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);border-top:1px solid var(--ink)}
+.pick-item{display:grid;align-content:start;gap:14px;padding-top:24px}
+.pick-item .mono{color:var(--sun-ink)}
+.pick-item h3{font-size:22px;font-weight:700;line-height:1.25}
+.pick-item p{color:var(--ink-2)}
+.pick-cta{margin-top:clamp(40px,6vw,72px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;padding:clamp(22px,3vw,32px);background:var(--sun-soft);border-radius:6px}
+.pick-cta h3{font:400 clamp(20px,2.2vw,28px)/1.2 var(--f-display);max-width:22em}
+.pick-cta p{color:var(--ink-2);margin-top:8px;max-width:38em}
+@media (max-width:760px){.pick{grid-template-columns:minmax(0,1fr);gap:8px}}
+
+/* Этапы и маршрут */
+.stages-sec{background:var(--card);border-block:1px solid var(--line)}
+.stages{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(32px,6vw,96px)}
+.route-col{min-width:0}
+.route-sticky{position:sticky;top:calc(var(--hdr) + env(safe-area-inset-top,0px) + 32px);display:grid;gap:20px}
+.route-v{width:100%;max-width:300px;height:auto}
+.route-bar{display:none}
+.r-base{fill:none;stroke:var(--line);stroke-width:3}
+.r-sea{stroke-dasharray:2 9;stroke-linecap:round;stroke-width:4}
+.r-prog{fill:none;stroke:var(--sun);stroke-width:4;stroke-linecap:round}
+.r-node{fill:var(--card);stroke:var(--line);stroke-width:3;transition:fill .3s,stroke .3s}
+.r-node.on{fill:var(--sun);stroke:var(--sun)}
+.r-lbl{font:600 17px var(--f-body);fill:var(--ink)}
+.r-cap{font:500 11px var(--f-mono);letter-spacing:.08em;fill:var(--ink-2);text-transform:uppercase}
+.r-marker circle:first-child{fill:var(--sun);stroke:var(--card);stroke-width:4}
+.r-pulse{fill:none;stroke:var(--sun);stroke-width:2;transform-origin:0 0;animation:pulse 2s ease-out infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.7}to{transform:scale(2.6);opacity:0}}
+.route-note{font-size:14px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:16px;max-width:300px}
+.route-note b{color:var(--ink)}
+.stage-list{list-style:none;margin:0;padding:0;display:grid;min-width:0}
+.stage{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;padding-block:28px;border-top:1px solid var(--line);transition:opacity .4s}
+.stage:last-child{border-bottom:1px solid var(--line)}
+.st-num{font:400 30px/1 var(--f-display);color:var(--line);transition:color .4s}
+.stage.active .st-num,.stage.done .st-num{color:var(--sun)}
+.st-body{display:grid;gap:8px;min-width:0}
+.st-place{color:var(--ink-2)}
+.stage h3{font-size:clamp(19px,2vw,23px);font-weight:700;line-height:1.25}
+.stage p{color:var(--ink-2);max-width:36em}
+@media (max-width:859px){
+  .stages{grid-template-columns:minmax(0,1fr);gap:0}
+  .route-col{display:none}
+  .route-bar{display:grid;gap:4px;position:sticky;top:calc(var(--hdr) + env(safe-area-inset-top,0px));z-index:5;align-self:start;background:var(--card);padding-block:10px 12px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .route-h{width:100%;height:auto}
+  .route-now{font:600 14px/1.3 var(--f-body)}
+  .route-now span{color:var(--sun-ink);font-family:var(--f-mono)}
+  .stage{grid-template-columns:52px minmax(0,1fr)}
+  .st-num{font-size:24px}
+}
+
+/* Автомобили */
+.cars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.car{position:relative;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:18px;transition:transform .4s var(--ease),box-shadow .4s,border-color .3s}
+.car:hover{transform:translateY(-4px);box-shadow:0 22px 50px -30px rgba(23,18,13,.35);border-color:var(--ink-2)}
+.car-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.car-brand{color:var(--ink-2)}
+.car-model{font-size:24px;font-weight:700;line-height:1.15;margin-top:6px}
+.seal{flex:none;width:54px;height:54px;border-radius:50%;border:2px solid var(--sun);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--sun);display:grid;place-items:center;font:400 22px/1 var(--f-display);color:var(--sun);transform:rotate(-12deg);opacity:.92}
+.car-spec{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:8px 20px;margin:0;padding-top:16px;border-top:1px dashed var(--line)}
+.car-spec div{display:grid;gap:2px;min-width:0}
+.car-spec dt{font:500 11px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.car-spec dd{margin:0;font:500 14px/1.3 var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.car-spec div:last-child dd{white-space:normal}
+.cars-note{margin-top:20px;font-size:14px;color:var(--ink-2)}
+.js .car.pre .seal{opacity:0}
+.car.stamped .seal{animation:stamp .55s cubic-bezier(.3,1.6,.5,1) both .2s}
+@keyframes stamp{from{transform:scale(1.9) rotate(-40deg);opacity:0}to{transform:scale(1) rotate(-12deg);opacity:.92}}
+
+/* Рельсы для мобильных */
+.rail-ctrl{display:flex;gap:8px}
+.rbtn{width:48px;height:48px;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 18px/1 var(--f-body);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
+.rbtn:hover{background:var(--ink);color:var(--paper)}
+@media (max-width:860px){
+  .cars{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(272px,86%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+  .cars::-webkit-scrollbar{display:none}
+  .car{scroll-snap-align:start}
+  .car:hover{transform:none}
+}
+
+/* Стоимость */
+.price-sec{background:var(--paper-2)}
+.pay{display:grid;gap:16px}
+.pay-first{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.pay-step{display:grid;align-content:start;gap:10px;padding:24px 0}
+.pay-step .mono{color:var(--sun-ink)}
+.pay-step h3{font-size:22px;font-weight:700;line-height:1.25}
+.pay-step p{color:var(--ink-2)}
+.fee{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;align-content:space-between;gap:24px}
+.fee-num{font:400 clamp(40px,5vw,64px)/1 var(--f-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fee-num small{font-size:.5em}
+.fee p{color:var(--ink-2)}
+.fee-main{background:var(--sun);border-color:var(--sun)}
+.fee-main p{color:var(--ink)}
+.pay-rest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;border-top:1px solid var(--ink)}
+.pay-rest .pay-step{padding:24px 0 0}
+.pay-rest .warn{color:var(--ink);font-weight:600}
+.examples{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px 32px;align-items:start}
+.examples h3{font:400 clamp(20px,2vw,26px)/1.2 var(--f-display)}
+.ex-list{list-style:none;margin:0;padding:0;display:grid}
+.ex-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--line)}
+.ex-list li:first-child{border-top:1px solid var(--line)}
+.ex-car{font-weight:600}
+.ex-sum{font:500 18px/1 var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ex-where{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
+@media (max-width:860px){
+  .pay-first{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .pay-first .pay-step{grid-column:1/-1;padding-bottom:4px}
+  .pay-rest{grid-template-columns:minmax(0,1fr);gap:0}
+  .pay-rest .pay-step{padding-block:22px;border-bottom:1px solid var(--line)}
+  .examples{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){.pay-first{grid-template-columns:minmax(0,1fr)}}
+
+/* Отзывы */
+.rev-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:clamp(32px,5vw,56px)}
+.rev-head .sec-head{margin-bottom:0}
+.rate-cards{display:flex;flex-wrap:wrap;gap:12px}
+.rate-card{display:grid;gap:6px;min-width:200px;padding:18px 20px;border:1px solid var(--line);border-radius:6px;background:var(--card);text-decoration:none;transition:border-color .2s,transform .3s var(--ease)}
+.rate-card:hover{border-color:var(--ink);transform:translateY(-2px)}
+.rate-row{display:flex;align-items:center;gap:12px}
+.rate-big{font:400 40px/1 var(--f-display)}
+.stars{position:relative;display:inline-block;font-size:17px;letter-spacing:2px;color:var(--line);line-height:1}
+.stars::before{content:"★★★★★"}
+.stars i{position:absolute;inset:0 auto 0 0;overflow:hidden;color:var(--sun);font-style:normal;white-space:nowrap}
+.stars i::before{content:"★★★★★"}
+.rate-src{font-weight:600}
+.rate-meta{font-size:13px;color:var(--ink-2)}
+.rev-rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,400px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;align-items:start}
+.rev-rail::-webkit-scrollbar{display:none}
+.rev{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:16px;min-width:0}
+.rev-q{font:400 48px/.6 var(--f-display);color:var(--sun);height:22px}
+.rev-text{display:grid;gap:10px;font-size:15.5px;line-height:1.6}
+.rev-text.clamp{display:-webkit-box;-webkit-line-clamp:9;-webkit-box-orient:vertical;overflow:hidden}
+.rev-text.clamp p{display:inline}
+.rev-text.clamp p+p::before{content:" "}
+.rev-more{justify-self:start;background:none;border:0;padding:0;font:600 14px/1.4 var(--f-body);color:var(--sun-ink);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.rev-foot{display:grid;gap:4px;padding-top:16px;border-top:1px dashed var(--line)}
+.rev-name{font-weight:700}
+.rev-car{font:500 13px/1.4 var(--f-mono);color:var(--ink-2)}
+.rev-src{justify-self:start;margin-top:6px;font:500 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;border-radius:3px;background:var(--sun-soft);color:var(--sun-ink)}
+.rev-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}
+.rev-links{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px;font-weight:600}
+.rev-links a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--sun)}
+.rev-links a:hover{color:var(--sun-ink)}
+
+/* Каналы */
+.channels-sec{background:var(--card);border-block:1px solid var(--line)}
+.chs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ch{position:relative;display:grid;align-content:space-between;gap:28px;min-height:170px;padding:22px;border:1px solid var(--line);border-radius:6px;background:var(--paper);text-decoration:none;transition:background .3s,border-color .3s,transform .35s var(--ease);min-width:0}
+.ch:hover{background:var(--sun-soft);border-color:var(--sun);transform:translateY(-3px)}
+.ch-tg{grid-column:span 2;grid-row:span 2;background:var(--sun);border-color:var(--sun)}
+.ch-tg:hover{background:var(--sun-hi);border-color:var(--sun-hi)}
+.ch-tg .ch-name{font-size:clamp(28px,3.4vw,48px)}
+.ch-name{display:block;padding-right:28px;font:400 clamp(20px,2vw,28px)/1.05 var(--f-display);overflow-wrap:anywhere}
+.ch-what{font-size:14px;color:var(--ink-2);margin-top:8px}
+.ch-tg .ch-what{color:var(--ink)}
+.ch-handle{font:500 13px/1.3 var(--f-mono);overflow-wrap:anywhere}
+.ch-arr{position:absolute;top:18px;right:20px;font-size:20px;transition:transform .3s var(--ease)}
+.ch:hover .ch-arr{transform:translate(3px,-3px)}
+.ch-note{margin-top:16px;font-size:12px;color:var(--ink-2)}
+@media (max-width:1020px){.chs{grid-template-columns:repeat(2,minmax(0,1fr))}.ch-tg{grid-column:1/-1;grid-row:auto}}
+@media (max-width:420px){.ch{min-height:140px;padding:18px}}
+
+/* Заявка и контакты */
+.lead-sec{position:relative;overflow:hidden;padding-block:clamp(64px,10vw,128px) clamp(96px,14vw,180px)}
+.lead-sun{position:absolute;left:50%;bottom:0;width:min(1100px,150vw);aspect-ratio:1;border-radius:50%;transform:translate(-50%,62%);background:radial-gradient(circle at 50% 30%,var(--sun-hi),var(--sun) 45%,#F1590C 80%);pointer-events:none;will-change:transform}
+.lead-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:16px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:clamp(22px,3.4vw,40px);box-shadow:0 30px 80px -40px rgba(23,18,13,.35);min-width:0}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.form-head{grid-column:1/-1;display:grid;gap:12px;margin-bottom:6px}
+.form-head p{color:var(--ink-2)}
+.sign{font:500 13px var(--f-mono);color:var(--ink-2)}
+.field{display:grid;gap:8px;min-width:0}
+.field-wide{grid-column:1/-1}
+.field label,.chips legend{font-size:13px;font-weight:600}
+.field input{width:100%;min-height:52px;padding:0 16px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font:400 16px var(--f-body);color:var(--ink);transition:border-color .2s,background .2s}
+.field input::placeholder{color:#9A9087}
+.field input:focus{outline:none;border-color:var(--ink);background:var(--card)}
+.field input.bad{border-color:var(--err)}
+.chips{grid-column:1/-1;border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.chips legend{padding:0;margin-bottom:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip label{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-size:14px;cursor:pointer;background:var(--paper);transition:background .2s,border-color .2s,color .2s}
+.chip label:hover{border-color:var(--ink)}
+.chip input:checked+label{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip input:focus-visible+label{outline:2px solid var(--sun-ink);outline-offset:2px}
+.agree{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--ink-2);cursor:pointer}
+.agree input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--sun-ink);flex:none}
+.agree a{color:var(--ink)}
+.agree.bad span{color:var(--err)}
+.form-send{grid-column:1/-1;display:grid;gap:10px}
+.form-send .btn{width:100%}
+.form-msg{font-size:14px;min-height:1.4em}
+.form-msg.err{color:var(--err)}
+.demo-note{font-size:12px;color:var(--ink-2)}
+.done{display:grid;gap:14px;justify-items:start}
+.done-mark{width:64px;height:64px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:400 28px/1 var(--f-display)}
+.done h3{font:400 28px/1.15 var(--f-display)}
+.done p{color:var(--ink-2)}
+@media (max-width:560px){.form{grid-template-columns:minmax(0,1fr)}}
+
+.contacts{display:grid;gap:22px}
+.c-block{display:grid;gap:10px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.c-block:last-child{border-bottom:0;padding-bottom:0}
+.c-block .mono{color:var(--ink-2)}
+.c-phone{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.c-phone a{font:400 clamp(24px,2.6vw,30px)/1.1 var(--f-display);text-decoration:none;white-space:nowrap}
+.copy{min-height:34px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font:500 12px var(--f-body);cursor:pointer;color:var(--ink)}
+.copy:hover{border-color:var(--ink)}
+.c-links{display:grid;gap:8px}
+.c-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:0 16px;border:1px solid var(--line);border-radius:4px;text-decoration:none;font-weight:600;transition:border-color .2s,background .2s}
+.c-link:hover{border-color:var(--ink);background:var(--paper)}
+.c-link small{font:400 12px var(--f-mono);color:var(--ink-2);overflow-wrap:anywhere;text-align:right}
+.c-addr{font-size:18px;font-weight:700;line-height:1.35}
+.c-hours{color:var(--ink-2);font-size:14px}
+.c-maps{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:900px){.lead-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Подвал */
+.foot{background:var(--paper-2);border-top:1px solid var(--line);padding-block:48px 32px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:32px}
+.foot-grid h4{margin:0 0 12px;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.foot-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:15px}
+.foot-list a{text-decoration:none}
+.foot-list a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-about{display:grid;gap:12px;align-content:start;color:var(--ink-2);font-size:14px;max-width:26em}
+.foot-low{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:12px;color:var(--ink-2)}
+.foot-low a{color:var(--ink)}
+.credit{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.credit b{color:var(--ink);font-weight:700}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-about{grid-column:1/-1}}
+@media (max-width:860px){.foot{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+
+/* Нижняя панель на телефоне */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;grid-template-columns:1fr 1fr 1.2fr;gap:8px;padding:10px max(16px, env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px));background:rgba(250,249,247,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s var(--ease)}
+.mbar.show{transform:none}
+.mbar a{display:grid;place-items:center;min-height:46px;border-radius:4px;border:1px solid var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+.mbar .mbar-main{background:var(--sun);border-color:var(--sun)}
+@media (max-width:860px){.mbar{display:grid}}
+
+/* Появление при прокрутке: только сдвиг, текст всегда виден */
+.rv{transition:transform 1s var(--ease)}
+.js .rv.pre{transform:translateY(36px)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv.pre{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top" aria-label="GAIJIN, в начало страницы"><span class="logo-sun" aria-hidden="true"></span>GAIJIN</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#stages">Этапы</a>
+      <a href="#cars">Автомобили</a>
+      <a href="#price">Стоимость</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="hdr-act">
+      <a class="hdr-phone" href="tel:+79174317526">+7 917 431-75-26</a>
+      <a class="btn btn-sun btn-sm" href="#lead">Рассчитать</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Герой -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Уфа · подбор с аукционов Японии</span>
+        <h1 class="h1">
+          <span class="ln"><span>Автомобили</span></span>
+          <span class="ln"><span>из <span class="hl">Японии</span></span></span>
+          <span class="ln"><span>под заказ</span></span>
+        </h1>
+        <p class="lead">Подберу и привезу автомобиль с японского аукциона под ваш бюджет и требования. Лично сопровождаю каждый заказ, от первого подбора до получения автомобиля.</p>
+        <div class="hero-cta">
+          <a class="btn btn-sun btn-lg" href="#lead">Рассчитать стоимость <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-line btn-lg" href="https://t.me/Arsen_Borisovich" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+        <div class="rates">
+          <a class="rate-chip" href="https://yandex.ru/maps/org/gaijin/176719976499/reviews/" target="_blank" rel="noopener"><b>4,7</b><span class="st" aria-hidden="true">★</span>Яндекс Карты</a>
+          <a class="rate-chip" href="https://2gis.ru/ufa/firm/70000001113292158/tab/reviews" target="_blank" rel="noopener"><b>5,0</b><span class="st" aria-hidden="true">★</span>2ГИС</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="sun-wrap" id="sunWrap">
+          <div class="sun-anim">
+            <svg class="ring" viewBox="0 0 400 400">
+              <defs><path id="ringPath" d="M200,200 m-188,0 a188,188 0 1,1 376,0 a188,188 0 1,1 -376,0"/></defs>
+              <text><textPath href="#ringPath" textLength="1170" lengthAdjust="spacing">GAIJIN · авто под заказ из Японии · Уфа · GAIJIN · аукционы Японии · Владивосток · Уфа · </textPath></text>
+            </svg>
+            <div class="disc"><span class="kanji">外人</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="lot" aria-label="Пример реального заказа">
+        <span class="mono">Реальный заказ клиента</span>
+        <span class="lot-model">Honda WR-V</span>
+        <span class="lot-price">1 800 000 ₽</span>
+        <span class="lot-note">под ключ до Владивостока, со всеми расходами</span>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Модели, которые привезли -->
+  <div class="marquee" aria-label="Модели, которые привезли клиентам">
+    <div class="mq-track">
+      <span>Honda Freed+</span><span>Volkswagen Golf 8</span><span>Suzuki Jimny Sierra</span><span>BMW 1 Series</span><span>Audi Q2</span><span>Honda Step Wagon</span><span>Toyota Roomy</span><span>Mazda Axela</span><span>Volkswagen Passat R-Line</span><span>Honda N-WGN</span><span>Volkswagen T-Cross</span><span>Daihatsu Move</span><span>Honda Fit</span><span>Audi A3</span>
+      <span aria-hidden="true">Honda Freed+</span><span aria-hidden="true">Volkswagen Golf 8</span><span aria-hidden="true">Suzuki Jimny Sierra</span><span aria-hidden="true">BMW 1 Series</span><span aria-hidden="true">Audi Q2</span><span aria-hidden="true">Honda Step Wagon</span><span aria-hidden="true">Toyota Roomy</span><span aria-hidden="true">Mazda Axela</span><span aria-hidden="true">Volkswagen Passat R-Line</span><span aria-hidden="true">Honda N-WGN</span><span aria-hidden="true">Volkswagen T-Cross</span><span aria-hidden="true">Daihatsu Move</span><span aria-hidden="true">Honda Fit</span><span aria-hidden="true">Audi A3</span>
+    </div>
+  </div>
+
+  <!-- Подбор -->
+  <section class="sec" id="pick">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <span class="eyebrow">Подбор</span>
+        <h2 class="h2">Подбор автомобиля под ваши задачи и бюджет</h2>
+      </header>
+      <div class="pick">
+        <div class="pick-item rv">
+          <span class="mono">Бюджет и задачи</span>
+          <h3>Каждый автомобиль подбираю лично</h3>
+          <p>Учитываю бюджет, задачи, желаемую комплектацию, пробег и состояние автомобиля.</p>
+        </div>
+        <div class="pick-item rv">
+          <span class="mono">Аукционы</span>
+          <h3>Не предлагаю первый подходящий вариант</h3>
+          <p>Смотрим аукционы и выбираем автомобиль, который действительно стоит покупать.</p>
+        </div>
+        <div class="pick-item rv">
+          <span class="mono">Проверка до ставки</span>
+          <h3>Аукционный лист, история и полная стоимость</h3>
+          <p>Перед ставкой проверяю аукционный лист, историю и рассчитываю полную стоимость автомобиля до получения.</p>
+        </div>
+      </div>
+      <div class="pick-cta rv">
+        <div>
+          <h3>Узнайте, какой автомобиль можно привезти под ваш бюджет</h3>
+          <p>Оставьте номер. Я свяжусь с вами, уточню пожелания и бесплатно рассчитаю несколько подходящих вариантов.</p>
+        </div>
+        <a class="btn btn-sun btn-lg" href="#lead">Оставить заявку <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Этапы -->
+  <section class="sec stages-sec" id="stages">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <span class="eyebrow">Этапы заказа</span>
+        <h2 class="h2">Как проходит заказ авто из Японии</h2>
+        <p class="sub">Восемь этапов от подбора до ключей. На всём пути вы знаете, где сейчас ваш автомобиль.</p>
+      </header>
+
+      <div class="stages" id="stagesBox">
+        <div class="route-col">
+          <div class="route-sticky">
+            <svg class="route-v" id="routeV" viewBox="0 0 280 640" role="img" aria-label="Маршрут автомобиля: Япония, Владивосток, Уфа">
+              <path class="r-base r-sea" data-sea d="M64 44 C 150 100, -10 150, 64 190 S 140 270, 64 320"/>
+              <path class="r-base" d="M64 320 C 64 420, 28 500, 64 596"/>
+              <path class="r-prog" data-prog d="M64 44 C 150 100, -10 150, 64 190 S 140 270, 64 320 C 64 420, 28 500, 64 596"/>
+              <circle class="r-node" data-at="0" cx="64" cy="44" r="10"/>
+              <circle class="r-node" data-at="sea" cx="64" cy="320" r="10"/>
+              <circle class="r-node" data-at="1" cx="64" cy="596" r="10"/>
+              <text class="r-lbl" x="96" y="42">Япония</text>
+              <text class="r-cap" x="96" y="62">аукционы · покупка</text>
+              <text class="r-lbl" x="96" y="318">Владивосток</text>
+              <text class="r-cap" x="96" y="338">порт · таможня</text>
+              <text class="r-lbl" x="96" y="594">Уфа</text>
+              <text class="r-cap" x="96" y="614">или ваш город</text>
+              <g class="r-marker" data-marker transform="translate(64 44)"><circle r="10"/><circle class="r-pulse" r="10"/></g>
+            </svg>
+            <p class="route-note">Из Японии автомобиль идёт морем во Владивосток, после таможни едет автовозом в Уфу или в ваш город. <b>Доставка из Владивостока оплачивается отдельно.</b></p>
+          </div>
+        </div>
+
+        <div class="route-bar" aria-hidden="true">
+          <svg class="route-h" id="routeH" viewBox="0 0 640 92">
+            <path class="r-base r-sea" data-sea d="M30 34 C 80 4, 120 64, 175 34 S 270 4, 320 34"/>
+            <path class="r-base" d="M320 34 L 610 34"/>
+            <path class="r-prog" data-prog d="M30 34 C 80 4, 120 64, 175 34 S 270 4, 320 34 L 610 34"/>
+            <circle class="r-node" data-at="0" cx="30" cy="34" r="9"/>
+            <circle class="r-node" data-at="sea" cx="320" cy="34" r="9"/>
+            <circle class="r-node" data-at="1" cx="610" cy="34" r="9"/>
+            <text class="r-lbl" x="14" y="80">Япония</text>
+            <text class="r-lbl" x="320" y="80" text-anchor="middle">Владивосток</text>
+            <text class="r-lbl" x="626" y="80" text-anchor="end">Уфа</text>
+            <g class="r-marker" data-marker transform="translate(30 34)"><circle r="9"/><circle class="r-pulse" r="9"/></g>
+          </svg>
+          <p class="route-now" id="routeNow"><span>01</span> Подбор автомобиля</p>
+        </div>
+
+        <ol class="stage-list" id="stageList">
+          <li class="stage active">
+            <span class="st-num">01</span>
+            <div class="st-body"><span class="mono st-place">Уфа · онлайн</span><h3>Подбор автомобиля</h3><p>Определяем бюджет, требования и несколько подходящих моделей.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">02</span>
+            <div class="st-body"><span class="mono st-place">Лично или удалённо</span><h3>Заключение договора</h3><p>Фиксируем условия работы, бюджет и порядок расчётов.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">03</span>
+            <div class="st-body"><span class="mono st-place">Аукционы Японии</span><h3>Поиск и участие в аукционах</h3><p>Я лично отслеживаю автомобили, проверяю аукционные листы и согласовываю каждый вариант с клиентом до ставки.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">04</span>
+            <div class="st-body"><span class="mono st-place">Япония</span><h3>Покупка и оплата автомобиля</h3><p>После выигрыша клиент оплачивает автомобиль по выставленному инвойсу.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">05</span>
+            <div class="st-body"><span class="mono st-place">Япония → Владивосток</span><h3>Доставка из Японии</h3><p>Автомобиль отправляется морем во Владивосток. На протяжении пути вы получаете информацию о движении автомобиля.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">06</span>
+            <div class="st-body"><span class="mono st-place">Владивосток</span><h3>Таможенное оформление</h3><p>Во Владивостоке автомобиль проходит таможню и необходимые процедуры для ввоза в Россию.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">07</span>
+            <div class="st-body"><span class="mono st-place">Владивосток → ваш город</span><h3>Доставка в ваш город</h3><p>После оформления организуем отправку автовозом или другой удобный вариант доставки.</p></div>
+          </li>
+          <li class="stage">
+            <span class="st-num">08</span>
+            <div class="st-body"><span class="mono st-place">Уфа или ваш город</span><h3>Получение автомобиля</h3><p>Встречаем автомобиль в Уфе, либо вы получаете его в своём городе.</p></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Автомобили -->
+  <section class="sec" id="cars">
+    <div class="wrap">
+      <div class="rev-head">
+        <header class="sec-head rv">
+          <span class="eyebrow">Последние заказы</span>
+          <h2 class="h2">Привезли клиентам</h2>
+          <p class="sub">Реальные автомобили наших клиентов: год, пробег и город, куда приехала машина.</p>
+        </header>
+        <div class="rail-ctrl" data-rail="carsRail">
+          <button class="rbtn" type="button" data-dir="-1" aria-label="Назад">←</button>
+          <button class="rbtn" type="button" data-dir="1" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+      <div class="cars" id="carsRail">
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Honda</span><h3 class="car-model">Freed+</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2022</dd></div><div><dt>Пробег</dt><dd>33 000 км</dd></div><div><dt>Город</dt><dd>Кумертау</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Volkswagen</span><h3 class="car-model">Golf 8</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2022</dd></div><div><dt>Пробег</dt><dd>53 000 км</dd></div><div><dt>Город</dt><dd>Самара</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Volkswagen</span><h3 class="car-model">T-Cross</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2021</dd></div><div><dt>Пробег</dt><dd>36 000 км</dd></div><div><dt>Город</dt><dd>Казань</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Honda</span><h3 class="car-model">Step Wagon</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2021</dd></div><div><dt>Пробег</dt><dd>28 000 км</dd></div><div><dt>Город</dt><dd>Уфа</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Toyota</span><h3 class="car-model">Roomy</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2021</dd></div><div><dt>Пробег</dt><dd>12 000 км</dd></div><div><dt>Город</dt><dd>Уфа</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Mazda</span><h3 class="car-model">Axela</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2019</dd></div><div><dt>Пробег</dt><dd>44 000 км</dd></div><div><dt>Город</dt><dd>Уфа</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">BMW</span><h3 class="car-model">1 Series</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2018</dd></div><div><dt>Пробег</dt><dd>18 000 км</dd></div><div><dt>Город</dt><dd>Межгорье</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Audi</span><h3 class="car-model">Q2</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2017</dd></div><div><dt>Пробег</dt><dd>50 000 км</dd></div><div><dt>Город</dt><dd>Москва</dd></div></dl></article>
+        <article class="car rv"><div class="car-top"><div><span class="mono car-brand">Volkswagen</span><h3 class="car-model">Passat R-Line</h3></div><span class="seal" aria-hidden="true">済</span></div><dl class="car-spec"><div><dt>Год</dt><dd>2014</dd></div><div><dt>Пробег</dt><dd>126 000 км</dd></div><div><dt>Город</dt><dd>Уфа</dd></div></dl></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Стоимость -->
+  <section class="sec price-sec" id="price">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <span class="eyebrow">Стоимость</span>
+        <h2 class="h2">Сколько стоит заказ авто из Японии</h2>
+        <p class="sub">Из чего складывается стоимость и на каких этапах происходит оплата.</p>
+      </header>
+      <div class="pay">
+        <div class="pay-first">
+          <div class="pay-step rv">
+            <span class="mono">Этап 1</span>
+            <h3>Заключение договора</h3>
+            <p>Две фиксированные суммы, которые не зависят от выбранного автомобиля.</p>
+          </div>
+          <div class="fee fee-main rv">
+            <span class="fee-num">50 000 <small>₽</small></span>
+            <p>Комиссия GAIJIN за подбор и сопровождение сделки</p>
+          </div>
+          <div class="fee rv">
+            <span class="fee-num">50 000 <small>₽</small></span>
+            <p>Брокерские услуги и оформление автомобиля во Владивостоке</p>
+          </div>
+        </div>
+        <div class="pay-rest">
+          <div class="pay-step rv">
+            <span class="mono">Этап 2</span>
+            <h3>Покупка автомобиля в Японии</h3>
+            <p>После выигрыша на аукционе вы оплачиваете инвойс. В него входят стоимость автомобиля, расходы по Японии, доставка до порта, морской фрахт до Владивостока и экспортные документы. Инвойс оплачивается напрямую в Японию, через банк или платёжного агента.</p>
+          </div>
+          <div class="pay-step rv">
+            <span class="mono">Этап 3</span>
+            <h3>Таможенное оформление</h3>
+            <p>После прибытия во Владивосток оплачиваются таможенные платежи и расходы на оформление в России. Размер платежей зависит от характеристик автомобиля и ставок, действующих на момент ввоза.</p>
+          </div>
+          <div class="pay-step rv">
+            <span class="mono">Этап 4</span>
+            <h3>Автомобиль готов</h3>
+            <p>После оформления автомобиль передаётся вам во Владивостоке либо отправляется в ваш город выбранным способом.</p>
+            <p class="warn">Доставка из Владивостока в ваш город оплачивается отдельно.</p>
+          </div>
+        </div>
+      </div>
+      <div class="examples rv">
+        <h3>Примеры стоимости реальных заказов</h3>
+        <ul class="ex-list">
+          <li><span class="ex-car">Honda WR-V</span><span class="ex-sum">1 800 000 ₽</span><span class="ex-where">под ключ до Владивостока, со всеми расходами</span></li>
+          <li><span class="ex-car">Honda Freed+, 2022</span><span class="ex-sum">1 690 000 ₽</span><span class="ex-where">во Владивостоке, из отзыва клиента</span></li>
+          <li><span class="ex-car">Volkswagen T-Cross</span><span class="ex-sum">1 150 000 ₽</span><span class="ex-where">под ключ до Владивостока, со всеми расходами</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="sec" id="reviews">
+    <div class="wrap">
+      <div class="rev-head">
+        <header class="sec-head rv">
+          <span class="eyebrow">Отзывы</span>
+          <h2 class="h2">Отзывы наших клиентов</h2>
+          <p class="sub">Настоящие отзывы с Яндекс Карт и 2ГИС. В 2ГИС компания отмечена под прежним названием JapanAutoUfa.</p>
+        </header>
+        <div class="rate-cards">
+          <a class="rate-card" href="https://yandex.ru/maps/org/gaijin/176719976499/reviews/" target="_blank" rel="noopener">
+            <span class="rate-row"><span class="rate-big">4,7</span><span class="stars" aria-label="4,7 из 5"><i style="width:94%"></i></span></span>
+            <span class="rate-src">Яндекс Карты ↗</span>
+            <span class="rate-meta">16 оценок · 14 отзывов</span>
+          </a>
+          <a class="rate-card" href="https://2gis.ru/ufa/firm/70000001113292158/tab/reviews" target="_blank" rel="noopener">
+            <span class="rate-row"><span class="rate-big">5,0</span><span class="stars" aria-label="5 из 5"><i style="width:100%"></i></span></span>
+            <span class="rate-src">2ГИС ↗</span>
+            <span class="rate-meta">16 оценок · 15 отзывов</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="rev-rail" id="revRail" tabindex="0" aria-label="Отзывы, листайте вбок">
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Доброго времени суток! Год назад с ребятами пригнали гольф для моей мамы. В этом году решил для себя гнать машину из-за границы (Япония, Китай, Корея). Планировал уложиться до 1,5 млн, в идеале универсал, так как багажник мне часто нужен. В Корее в этом бюджете можно было взять Samsung xm3 (Рено аркана), в Китае выбор был из пустых авто седанов. А в Японии был выбор из всего немецкого автопрома и огромный выбор универсалов. Решил брать японского немца и заключил договор.</p><p>Решили ставить в приоритете на 3 авто: пассат, Ауди а4, гольф 8. Около 2 недель делали ставки, за это время бюджет ставок увеличился с 1,3 млн до 1,65 млн) в конечном итоге выиграли этого белого Гольфа 8 на полторашке.</p><p>За 2 месяца довезли авто до Уфы. Катаюсь уже пару недель, успели и поездить по серпантину и трассе. Машина очень комфортная и бодрая. Очень доволен работой и рад своему приобретению.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Булат С., Уфа</span><span class="rev-car">Volkswagen Golf 8 · 2021 · 45 000 км</span><span class="rev-src">Яндекс Карты · 2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Хочу поблагодарить команду за подбор автомобиля. Выбрал 8 гольф по следующим критериям: максимально свежий 3-5 лет, наибольшее количество опций за небольшой бюджет 1.2-1.3млн.</p><p>Сроки подбора: 12 января озвучил свои критерии, созвонились, заключили договор удаленно, 13 января получил предложение об автомобиле подходящим под мои критерии, 17 января автомобиль был выигран на аукционе, 27 января автомобиль прибыл на ярд, 17 февраля автомобиль прибыл во Владивосток, 4 марта автомобиль получил в своем городе, общий срок где то 1.5 месяца ушло с момента покупки до момента когда автомобиль стоял у моего дома.</p><p>В живую автомобиль понравился больше чем на фотографиях, на протяжении всего нашего взаимодействия с компанией был доволен общением и оперативностью ответов на вопросы. Рекомендую данную компанию и буду обращаться к ним в дальнейшем, а так же рекомендовать знакомым.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Алексей С., Самара</span><span class="rev-car">Volkswagen Golf 8 · 2022 · 53 000 км</span><span class="rev-src">Яндекс Карты</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Ребята профессионалы своего дела. Все всегда четко и быстро. На все вопросы отвечают оперативно. Заказываю через них уже третью машину, до этого была Daihatsu Mira es, Toyota roomy.</p><p>Второй раз сам перегонял машину из Владивостока в Уфу. Надумаю брать ещё одно авто, точно буду обращаться только к ним, так как к этим ребятам доверие 100%! Однозначно рекомендую!</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Максим С., Уфа</span><span class="rev-car">Honda N-WGN · 2014 · третий заказ</span><span class="rev-src">Яндекс Карты · 2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Хочу поделиться нашей невероятной историей покупки автомобиля! Мы очень долго сомневались насчёт машины с правым рулём — взвешивали все «за» и «против», изучали рынок, сравнивали модели.</p><p>Почти год мы задавали вопросы Арсэну — и каждый раз получали исчерпывающие, честные и подробные ответы. Специалисты терпеливо разъясняли нюансы эксплуатации, помогали разобраться в особенностях разных моделей и честно говорили о возможных подводных камнях.</p><p>Мы наконец решились и 8 апреля заключили договор — и тут случилось настоящее чудо: уже 9 апреля в 5 утра пришло сообщение от Арсэна, что мы выиграли автомобиль! Причём выиграли именно ту машину, которая полностью соответствовала параметрам, заранее заложенным нами в топ приоритетных вариантов: по году выпуска, пробегу, комплектации и бюджету.</p><p>18 мая, несмотря на майские праздники, машина уже была полностью готова для погрузки на автовоз во Владивостоке. Команда оперативно скинула контакты проверенных перевозчиков. И вот, наконец, долгожданный момент: автомобиль благополучно добрался до Казани!</p><p>Машина оказалась в 100 раз лучше, чем мы ожидали! В описании были указаны некоторые кузовные дефекты, но на деле они оказались настолько незначительными, что их едва можно разглядеть. Однозначно рекомендуем!</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Айгуль Е., Казань</span><span class="rev-car">Volkswagen T-Cross · 2021 · 36 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Первый раз заказывал автомобиль с Японии, решил обратиться к ребятам (давно на них смотрел). Вообщем ребята большие молодцы, оперативно взяли мой заказ в работу. И уже через 3-4 дня в мой бюджет был куплен Honda Freed 2 поколения по моим критериям.</p><p>Прошло около месяца и наша семья стала счастливыми обладателями этого красавчика. На всех этапах ребята помогали (все доступно объясняли) и на мои глупые вопросы, были доступные ответы и объяснения. 100% их рекомендую и будем обязательно заказывать автомобиль еще.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Тимур Г., Уфа</span><span class="rev-car">Honda Freed · 2016 · 99 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Спасибо команде за крутую работу! Искали VW Golf 7 (универсал) с бюджетом 950к до Владивостока. С момента договора до покупки на аукционе прошло всего 2 недели (выиграли 6 февраля), а ровно через 2 месяца, 8 апреля, машина была уже у меня.</p><p>В реальности Гольф превзошел все ожидания — состояние даже лучше, чем на фото. Ребята всегда были на связи и оперативно отвечали на любые вопросы. Однозначно рекомендую! Обязательно обращусь снова и буду советовать знакомым.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Роман М., Уфа</span><span class="rev-car">Volkswagen Golf · 2016 · 54 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Заказал Volkswagen Passat B7 R‑Line через этих ребят. Машину подобрали на японском аукционе, привезли, оформили — всё на высшем уровне. Состояние просто огонь: идеальный кузов, салон как новый и пакет R‑Line.</p><p>Получил классный автомобиль, которого на нашем рынке просто не найти в таком состоянии. Ребята работают профессионально, без сюрпризов. Если хотите уникальный экземпляр и готовы к ожиданию — очень рекомендую.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Динис М., Уфа</span><span class="rev-car">Volkswagen Passat R-Line · 2014 · 126 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Всех приветствую, кто планирует покупку авто из Японии. Как и у многих наверное стал вопрос в приобретении авто. Много объехал автосалонов, посмотрел, что есть на рынке вторички, но к сожалению, ничего подходящего под свой бюджет не нашел. И тогда было принято решение покупки авто из Японии.</p><p>К счастью, случайно наткнулся на телеграмм канал наших ребят из Уфы. Созвонились, встретились. Получив всю информацию от Арсэна, заключил договор и начали работать. Уже с первого аукциона удалось выиграть авто, а дальше уже все поэтапно. В итоге через почти 2 месяца машинка прибыла в Уфу. Хочу высказать слова благодарности ребятам за профессионализм и оперативную работу.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Арслан М., Уфа</span><span class="rev-car">Honda Freed Spike · 2010 · 56 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Выражаю огромную благодарность команде. Планировалась покупка универсала, после знакомства с рынком, выбор пал на праворукий Golf Variant. Определились с бюджетом и начали подбор авто. Машина подобралась и выигралась за 3 дня. Прошло чуть больше месяца и машина с документами стояла во Владивостоке готовая к перевозке. В Уфу привез на автовозе.</p><p>В живую машина понравилась даже больше чем на фотках, все просто супер! Работой ребят очень доволен, все понятно и оперативно, а если не понятно — то объяснят. PS При посадке за правым рулём особого дискомфорта не ощутил.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Иван В., Уфа</span><span class="rev-car">Volkswagen Golf Variant · 2017 · 69 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Хочу поблагодарить команду. Машина полностью оправдала ожидания — отличное состояние, небольшой пробег, и цена приятно удивила. По статистике — одно из самых удачных предложений.</p><p>Работой ребят остался доволен. Сразу включились в процесс, быстро подобрали варианты, всё объясняли простым и понятным языком. Рассказали, как проходит покупка с аукциона, из чего складывается итоговая сумма — никаких скрытых моментов. Всё прошло спокойно и без лишней суеты. Спасибо большое!</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Артур А., Уфа</span><span class="rev-car">BMW 1 Series · 2018 · 19 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Парни, хотел сказать вам спасибо за работу! Всегда были на связи, не игнорили мои просьбы и пожелания, не торопили с выбором. То что мы с вами задумали в итоге воплотили в жизнь. Машина в своем бюджете полностью себя оправдывает!</p><p>Рад что обратился к вам, огромный плюс что вы ребята местные, не нужно учитывать временные пояса и тысячи километров расстояния! Вам всех благ в вашем деле, развития в геометрической прогрессии!</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Константин Д., Уфа</span><span class="rev-car">Volkswagen Golf · 2015 · 47 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+
+        <article class="rev">
+          <span class="rev-q" aria-hidden="true">“</span>
+          <div class="rev-text clamp"><p>Уже второй раз заказываю машину из Японии через ребят. До этого был Nissan Note. Очень довольна их работой, всегда все по полочкам объяснят, расскажут, покажут. И после заказа в хороших дружеских отношениях.</p><p>Все, кто интересуется у меня на счет машины, сразу отправляю к ним, с уверенностью, что все будет выгодно, честно и профессионально.</p></div>
+          <button class="rev-more" type="button" hidden>Читать полностью</button>
+          <div class="rev-foot"><span class="rev-name">Гузель В., Уфа</span><span class="rev-car">Audi A3 · 2014 · 64 000 км</span><span class="rev-src">2ГИС</span></div>
+        </article>
+      </div>
+
+      <div class="rev-bottom">
+        <div class="rev-links">
+          <a href="https://yandex.ru/maps/org/gaijin/176719976499/reviews/" target="_blank" rel="noopener">Все отзывы на Яндекс Картах ↗</a>
+          <a href="https://2gis.ru/ufa/firm/70000001113292158/tab/reviews" target="_blank" rel="noopener">Все отзывы в 2ГИС ↗</a>
+        </div>
+        <div class="rail-ctrl" data-rail="revRail">
+          <button class="rbtn" type="button" data-dir="-1" aria-label="Предыдущие отзывы">←</button>
+          <button class="rbtn" type="button" data-dir="1" aria-label="Следующие отзывы">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Каналы -->
+  <section class="sec channels-sec" id="channels">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <span class="eyebrow">Каналы</span>
+        <h2 class="h2">GAIJIN в соцсетях</h2>
+        <p class="sub">Видеообзоры привезённых автомобилей, процесс заказа и новости. Выберите, где вам удобнее следить.</p>
+      </header>
+      <div class="chs">
+        <a class="ch ch-tg rv" href="https://t.me/gaijin102" target="_blank" rel="noopener">
+          <span class="ch-arr" aria-hidden="true">↗</span>
+          <div><span class="ch-name">Telegram</span><p class="ch-what">Канал GAIJIN</p></div>
+          <span class="ch-handle">t.me/gaijin102</span>
+        </a>
+        <a class="ch rv" href="https://www.youtube.com/@gaijin102youtube" target="_blank" rel="noopener">
+          <span class="ch-arr" aria-hidden="true">↗</span>
+          <div><span class="ch-name">YouTube</span><p class="ch-what">Видеообзоры</p></div>
+          <span class="ch-handle">@gaijin102youtube</span>
+        </a>
+        <a class="ch rv" href="https://vk.ru/gaijin102vk" target="_blank" rel="noopener">
+          <span class="ch-arr" aria-hidden="true">↗</span>
+          <div><span class="ch-name">ВКонтакте</span><p class="ch-what">Сообщество</p></div>
+          <span class="ch-handle">vk.ru/gaijin102vk</span>
+        </a>
+        <a class="ch rv" href="https://max.ru/channel_gaijin102" target="_blank" rel="noopener">
+          <span class="ch-arr" aria-hidden="true">↗</span>
+          <div><span class="ch-name">MAX</span><p class="ch-what">Канал в MAX</p></div>
+          <span class="ch-handle">channel_gaijin102</span>
+        </a>
+        <a class="ch rv" href="https://www.instagram.com/gaijin102" target="_blank" rel="noopener">
+          <span class="ch-arr" aria-hidden="true">↗</span>
+          <div><span class="ch-name">Instagram*</span><p class="ch-what">Фото и истории</p></div>
+          <span class="ch-handle">@gaijin102</span>
+        </a>
+      </div>
+      <p class="ch-note">* Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в России.</p>
+    </div>
+  </section>
+
+  <!-- Заявка и контакты -->
+  <section class="lead-sec" id="lead">
+    <div class="lead-sun" id="leadSun" aria-hidden="true"></div>
+    <div class="wrap lead-grid">
+      <div class="panel" id="formPanel">
+        <form class="form" id="leadForm" novalidate>
+          <div class="form-head">
+            <span class="eyebrow">Заявка на расчёт</span>
+            <h2 class="h2">Рассчитаю автомобиль под ваш бюджет</h2>
+            <p>Оставьте номер. Я свяжусь с вами, уточню пожелания и бесплатно рассчитаю несколько подходящих вариантов.</p>
+            <span class="sign">Арсэн, GAIJIN</span>
+          </div>
+          <div class="field">
+            <label for="f-name">Имя</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон</label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field field-wide">
+            <label for="f-car">Какой автомобиль ищете</label>
+            <input id="f-car" name="car" type="text" placeholder="Например, Honda Freed или универсал Volkswagen">
+          </div>
+          <fieldset class="chips">
+            <legend>Бюджет</legend>
+            <span class="chip"><input type="radio" name="budget" id="f-b1" value="до 1 млн ₽"><label for="f-b1">до 1 млн ₽</label></span>
+            <span class="chip"><input type="radio" name="budget" id="f-b2" value="1–1,5 млн ₽"><label for="f-b2">1–1,5 млн ₽</label></span>
+            <span class="chip"><input type="radio" name="budget" id="f-b3" value="1,5–2 млн ₽"><label for="f-b3">1,5–2 млн ₽</label></span>
+            <span class="chip"><input type="radio" name="budget" id="f-b4" value="2–3 млн ₽"><label for="f-b4">2–3 млн ₽</label></span>
+            <span class="chip"><input type="radio" name="budget" id="f-b5" value="от 3 млн ₽"><label for="f-b5">от 3 млн ₽</label></span>
+          </fieldset>
+          <fieldset class="chips">
+            <legend>Как удобнее связаться</legend>
+            <span class="chip"><input type="radio" name="contact" id="f-c1" value="Звонок" checked><label for="f-c1">Звонок</label></span>
+            <span class="chip"><input type="radio" name="contact" id="f-c2" value="Telegram"><label for="f-c2">Telegram</label></span>
+            <span class="chip"><input type="radio" name="contact" id="f-c3" value="WhatsApp"><label for="f-c3">WhatsApp</label></span>
+            <span class="chip"><input type="radio" name="contact" id="f-c4" value="MAX"><label for="f-c4">MAX</label></span>
+          </fieldset>
+          <label class="agree" id="agreeBox" for="f-agree">
+            <input type="checkbox" id="f-agree" name="agree">
+            <span>Согласен на обработку персональных данных в соответствии с <a href="https://gaijin102.ru/politika" target="_blank" rel="noopener">политикой конфиденциальности</a></span>
+          </label>
+          <div class="form-send">
+            <button class="btn btn-sun btn-lg" id="f-send" type="submit">Получить расчёт <span class="arr" aria-hidden="true">→</span></button>
+            <p class="form-msg" id="f-msg" role="status" aria-live="polite"></p>
+            <p class="demo-note" id="f-demo" hidden>Демо-версия: отправка заявок в Telegram подключается при запуске сайта.</p>
+          </div>
+        </form>
+        <div class="done" id="formDone" hidden>
+          <span class="done-mark" aria-hidden="true">✓</span>
+          <h3>Заявка принята</h3>
+          <p>Я свяжусь с вами, уточню пожелания и пришлю подходящие варианты. Если вопрос срочный, позвоните: +7 917 431-75-26.</p>
+          <button class="btn btn-line" type="button" id="formAgain">Отправить ещё одну</button>
+        </div>
+      </div>
+
+      <aside class="panel contacts" id="contacts" aria-label="Контакты">
+        <div class="c-block">
+          <span class="mono">Остались вопросы?</span>
+          <p>Позвоните или напишите, отвечу лично.</p>
+          <div class="c-phone">
+            <a href="tel:+79174317526" id="phoneText">+7 917 431-75-26</a>
+            <button class="copy" type="button" id="copyPhone">Скопировать</button>
+          </div>
+        </div>
+        <div class="c-block">
+          <span class="mono">Написать Арсэну</span>
+          <div class="c-links">
+            <a class="c-link" href="https://t.me/Arsen_Borisovich" target="_blank" rel="noopener">Telegram <small>@Arsen_Borisovich</small></a>
+            <a class="c-link" href="https://wa.me/79174317526?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D0%B0%D0%B2%D1%82%D0%BE%20%D0%B8%D0%B7%20%D0%AF%D0%BF%D0%BE%D0%BD%D0%B8%D0%B8" target="_blank" rel="noopener">WhatsApp <small>+7 917 431-75-26</small></a>
+            <a class="c-link" href="https://max.ru/u/f9LHodD0cOK5ddIW0bIASVA1h4WFg_Gd4Vv36aRlF29wFqUYcgU-1NzIl5w" target="_blank" rel="noopener">MAX <small>личные сообщения</small></a>
+          </div>
+        </div>
+        <div class="c-block">
+          <span class="mono">Офис</span>
+          <p class="c-addr">Уфа, бульвар Ибрагимова, 21</p>
+          <p class="c-hours">Работаем с 10:00 до 18:00</p>
+          <div class="c-maps">
+            <a class="btn btn-line btn-sm" href="https://yandex.ru/maps/org/gaijin/176719976499/" target="_blank" rel="noopener">Яндекс Карты</a>
+            <a class="btn btn-line btn-sm" href="https://2gis.ru/ufa/firm/70000001113292158" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a class="logo" href="#top"><span class="logo-sun" aria-hidden="true"></span>GAIJIN</a>
+        <p>Автомобили под заказ с японских аукционов. Уфа и вся Россия.</p>
+        <p>Уфа, бульвар Ибрагимова, 21<br><a href="tel:+79174317526">+7 917 431-75-26</a></p>
+      </div>
+      <div>
+        <h4>Каналы</h4>
+        <ul class="foot-list">
+          <li><a href="https://t.me/gaijin102" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://www.youtube.com/@gaijin102youtube" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://vk.ru/gaijin102vk" target="_blank" rel="noopener">ВКонтакте</a></li>
+          <li><a href="https://max.ru/channel_gaijin102" target="_blank" rel="noopener">MAX</a></li>
+          <li><a href="https://www.instagram.com/gaijin102" target="_blank" rel="noopener">Instagram*</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Связь и карты</h4>
+        <ul class="foot-list">
+          <li><a href="https://t.me/Arsen_Borisovich" target="_blank" rel="noopener">Telegram Арсэна</a></li>
+          <li><a href="https://wa.me/79174317526" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOK5ddIW0bIASVA1h4WFg_Gd4Vv36aRlF29wFqUYcgU-1NzIl5w" target="_blank" rel="noopener">MAX Арсэна</a></li>
+          <li><a href="https://yandex.ru/maps/org/gaijin/176719976499/" target="_blank" rel="noopener">Яндекс Карты</a></li>
+          <li><a href="https://2gis.ru/ufa/firm/70000001113292158" target="_blank" rel="noopener">2ГИС</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-low">
+      <span>© <span id="year">2026</span> GAIJIN · <a href="https://gaijin102.ru/politika" target="_blank" rel="noopener">Политика конфиденциальности</a></span>
+      <span>* Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в России.</span>
+      <a class="credit" href="https://badretlabs.ru" target="_blank" rel="noopener">Сайт разработан <b>badret.labs</b></a>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" aria-label="Быстрая связь">
+  <a href="https://t.me/Arsen_Borisovich" target="_blank" rel="noopener">Telegram</a>
+  <a href="https://wa.me/79174317526" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="mbar-main" href="#lead">Заявка</a>
+</nav>
+
+<script>
+/* Куда отправлять заявки. Пусто = демо-режим (заявка никуда не уходит).
+   При запуске сайта сюда ставится адрес обработчика, который пересылает заявку в Telegram. */
+const LEAD_ENDPOINT = "";
+
+(function(){
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const root = document.documentElement;
+  root.classList.add('js');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const yearEl = $('#year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* Появление при прокрутке: только для того, что ниже первого экрана */
+  const vh0 = window.innerHeight;
+  const rvEls = $$('.rv, .car');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.remove('pre');
+          if (e.target.classList.contains('car')) e.target.classList.add('stamped');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    rvEls.forEach((el) => {
+      if (el.getBoundingClientRect().top > vh0 * 0.95) { el.classList.add('pre'); io.observe(el); }
+      else if (el.classList.contains('car')) el.classList.add('stamped');
+    });
+  }
+
+  /* Шапка, параллакс солнца, нижняя панель */
+  const hdr = $('#hdr'), sun = $('#sunWrap'), hero = $('#hero'), mbar = $('#mbar'), lead = $('#lead'), leadSun = $('#leadSun');
+  let leadVisible = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((en) => { leadVisible = en[0].isIntersecting; onScroll(); }, { threshold: 0.15 }).observe(lead);
+  }
+  let ticking = false;
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const y = window.scrollY;
+      hdr.classList.toggle('scrolled', y > 8);
+      const hh = hero.offsetHeight;
+      if (!reduce && sun && y < hh * 1.2) {
+        sun.style.transform = 'translate3d(0,' + (y * 0.22).toFixed(1) + 'px,0) scale(' + (1 + y * 0.00028).toFixed(4) + ')';
+      }
+      if (!reduce && leadSun) {
+        const r = lead.getBoundingClientRect();
+        const t = Math.min(Math.max(1 - r.bottom / (window.innerHeight + r.height), 0), 1);
+        leadSun.style.transform = 'translate(-50%,' + (70 - t * 22).toFixed(1) + '%)';
+      }
+      mbar.classList.toggle('show', y > hh * 0.6 && !leadVisible);
+      updateRoute();
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { routes.forEach(measure); onScroll(); });
+
+  /* Маршрут: Япония → Владивосток → Уфа */
+  const stages = $$('#stageList .stage');
+  const nowEl = $('#routeNow');
+  const routes = ['#routeV', '#routeH'].map((id) => {
+    const svg = $(id);
+    return { svg, prog: $('[data-prog]', svg), sea: $('[data-sea]', svg), marker: $('[data-marker]', svg), nodes: $$('.r-node', svg), len: 0, seaF: 0.5 };
+  });
+  function measure(r){
+    try {
+      r.len = r.prog.getTotalLength();
+      const s = r.sea.getTotalLength();
+      r.seaF = r.len ? s / r.len : 0.5;
+      r.prog.style.strokeDasharray = r.len;
+    } catch (e) { r.len = 0; }
+  }
+  routes.forEach(measure);
+  function anchors(seaF){
+    return [0, 0.025, 0.05, 0.075, seaF * 0.55, seaF, seaF + (1 - seaF) * 0.5, 1];
+  }
+  let lastIdx = -1;
+  function updateRoute(){
+    if (!stages.length) return;
+    const line = window.innerHeight * 0.48;
+    const tops = stages.map((s) => s.getBoundingClientRect().top);
+    let idx = 0;
+    for (let i = 0; i < tops.length; i++) if (tops[i] <= line) idx = i;
+    let frac = 0;
+    if (tops[0] <= line && idx < tops.length - 1) frac = Math.min(Math.max((line - tops[idx]) / (tops[idx + 1] - tops[idx]), 0), 1);
+    routes.forEach((r) => {
+      if (!r.len) measure(r);
+      if (!r.len) return;
+      const a = anchors(r.seaF);
+      const p = idx < 7 ? a[idx] + (a[idx + 1] - a[idx]) * frac : 1;
+      r.prog.style.strokeDashoffset = (r.len * (1 - p)).toFixed(1);
+      const pt = r.prog.getPointAtLength(r.len * p);
+      r.marker.setAttribute('transform', 'translate(' + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1) + ')');
+      r.nodes.forEach((n) => {
+        const at = n.dataset.at === 'sea' ? r.seaF : parseFloat(n.dataset.at);
+        n.classList.toggle('on', p >= at - 0.002);
+      });
+    });
+    if (idx !== lastIdx) {
+      lastIdx = idx;
+      stages.forEach((s, i) => { s.classList.toggle('active', i === idx); s.classList.toggle('done', i < idx); });
+      if (nowEl) nowEl.innerHTML = '<span>' + String(idx + 1).padStart(2, '0') + '</span> ' + $('h3', stages[idx]).textContent;
+    }
+  }
+
+  /* Листание лент */
+  $$('.rail-ctrl').forEach((ctrl) => {
+    const rail = document.getElementById(ctrl.dataset.rail);
+    $$('.rbtn', ctrl).forEach((b) => b.addEventListener('click', () => {
+      const card = rail.firstElementChild;
+      const step = card ? card.getBoundingClientRect().width + 16 : 320;
+      rail.scrollBy({ left: step * Number(b.dataset.dir), behavior: reduce ? 'auto' : 'smooth' });
+    }));
+  });
+
+  /* Отзывы: «Читать полностью» только там, где текст обрезан */
+  function checkClamp(){
+    $$('.rev').forEach((rev) => {
+      const t = $('.rev-text', rev), btn = $('.rev-more', rev);
+      if (!t.classList.contains('clamp')) return;
+      btn.hidden = !(t.scrollHeight > t.clientHeight + 4);
+    });
+  }
+  $$('.rev-more').forEach((btn) => btn.addEventListener('click', () => {
+    const t = btn.previousElementSibling;
+    const open = t.classList.toggle('clamp') === false;
+    btn.textContent = open ? 'Свернуть' : 'Читать полностью';
+  }));
+  checkClamp();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { checkClamp(); routes.forEach(measure); updateRoute(); });
+
+  /* Копирование телефона */
+  const copyBtn = $('#copyPhone');
+  copyBtn.addEventListener('click', () => {
+    const txt = '+7 917 431-75-26';
+    const done = () => { copyBtn.textContent = 'Скопировано'; setTimeout(() => { copyBtn.textContent = 'Скопировать'; }, 1800); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents($('#phoneText'));
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Выделено';
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, fallback);
+      else fallback();
+    } catch (e) { fallback(); }
+  });
+
+  /* Форма заявки */
+  const form = $('#leadForm'), msg = $('#f-msg'), send = $('#f-send'), phone = $('#f-phone'), nameI = $('#f-name'), agree = $('#f-agree'), agreeBox = $('#agreeBox');
+  if (!LEAD_ENDPOINT) $('#f-demo').hidden = false;
+  function digits(v){ let d = v.replace(/\D/g, ''); if (d[0] === '8') d = '7' + d.slice(1); if (d && d[0] !== '7') d = '7' + d; return d.slice(0, 11); }
+  function fmt(d){
+    if (!d) return '';
+    let o = '+7';
+    if (d.length > 1) o += ' (' + d.slice(1, 4);
+    if (d.length >= 4) o += ')';
+    if (d.length > 4) o += ' ' + d.slice(4, 7);
+    if (d.length > 7) o += '-' + d.slice(7, 9);
+    if (d.length > 9) o += '-' + d.slice(9, 11);
+    return o;
+  }
+  phone.addEventListener('input', () => { phone.value = fmt(digits(phone.value)); phone.classList.remove('bad'); });
+  phone.addEventListener('focus', () => { if (!phone.value) phone.value = '+7 ('; });
+  phone.addEventListener('blur', () => { if (digits(phone.value).length <= 1) phone.value = ''; });
+  nameI.addEventListener('input', () => nameI.classList.remove('bad'));
+  agree.addEventListener('change', () => agreeBox.classList.remove('bad'));
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    msg.className = 'form-msg'; msg.textContent = '';
+    const name = nameI.value.trim(), ph = digits(phone.value);
+    const errs = [];
+    if (!name) { nameI.classList.add('bad'); errs.push('имя'); }
+    if (ph.length !== 11) { phone.classList.add('bad'); errs.push('телефон полностью'); }
+    if (errs.length) { msg.className = 'form-msg err'; msg.textContent = 'Укажите ' + errs.join(' и ') + '.'; return; }
+    if (!agree.checked) { agreeBox.classList.add('bad'); msg.className = 'form-msg err'; msg.textContent = 'Отметьте согласие на обработку данных.'; return; }
+    const data = {
+      name: name,
+      phone: fmt(ph),
+      car: $('#f-car').value.trim(),
+      budget: (form.querySelector('input[name="budget"]:checked') || {}).value || '',
+      contact: (form.querySelector('input[name="contact"]:checked') || {}).value || '',
+      page: location.href.split('#')[0]
+    };
+    const ok = () => { form.hidden = true; $('#formDone').hidden = false; form.reset(); };
+    if (!LEAD_ENDPOINT) { ok(); return; }
+    send.disabled = true; send.firstChild.textContent = 'Отправляю… ';
+    fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then((r) => { if (!r.ok) throw new Error(r.status); ok(); })
+      .catch(() => { msg.className = 'form-msg err'; msg.textContent = 'Не получилось отправить заявку. Позвоните +7 917 431-75-26 или напишите в Telegram @Arsen_Borisovich.'; })
+      .finally(() => { send.disabled = false; send.firstChild.textContent = 'Получить расчёт '; });
+  });
+  $('#formAgain').addEventListener('click', () => { $('#formDone').hidden = true; form.hidden = false; nameI.focus(); });
+
+  onScroll();
+})();
+</script>
+</body>
+</html>
