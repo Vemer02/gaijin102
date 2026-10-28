@@ -197,7 +197,7 @@ p{margin:0}
 .stage{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px 16px;padding-block:28px;border-top:1px solid var(--line);transition:opacity .4s}
 .stage:last-child{border-bottom:1px solid var(--line)}
 .st-num{font:400 30px/1 var(--f-display);color:var(--line);transition:color .4s}
-.stage.active .st-num,.stage.done .st-num{color:var(--sun)}
+.stage.is-active .st-num,.stage.is-done .st-num{color:var(--sun)}
 .st-body{display:grid;gap:8px;min-width:0}
 .st-place{color:var(--ink-2)}
 .stage h3{font-size:clamp(19px,2vw,23px);font-weight:700;line-height:1.25}
@@ -359,10 +359,10 @@ p{margin:0}
 .form-msg{font-size:14px;min-height:1.4em}
 .form-msg.err{color:var(--err)}
 .demo-note{font-size:12px;color:var(--ink-2)}
-.done{display:grid;gap:14px;justify-items:start}
-.done-mark{width:64px;height:64px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:400 28px/1 var(--f-display)}
-.done h3{font:400 28px/1.15 var(--f-display)}
-.done p{color:var(--ink-2)}
+.form-done{display:grid;gap:14px;justify-items:start}
+.form-done-mark{width:64px;height:64px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font:400 28px/1 var(--f-display)}
+.form-done h3{font:400 28px/1.15 var(--f-display)}
+.form-done p{color:var(--ink-2)}
 @media (max-width:560px){.form{grid-template-columns:minmax(0,1fr)}}
 
 .contacts{display:grid;gap:22px}
@@ -567,7 +567,7 @@ p{margin:0}
         </div>
 
         <ol class="stage-list" id="stageList">
-          <li class="stage active">
+          <li class="stage is-active">
             <span class="st-num">01</span>
             <div class="st-body"><span class="mono st-place">Уфа · онлайн</span><h3>Подбор автомобиля</h3><p>Определяем бюджет, требования и несколько подходящих моделей.</p></div>
           </li>
@@ -896,8 +896,8 @@ p{margin:0}
             <p class="demo-note" id="f-demo" hidden>Демо-версия: отправка заявок в Telegram подключается при запуске сайта.</p>
           </div>
         </form>
-        <div class="done" id="formDone" hidden>
-          <span class="done-mark" aria-hidden="true">✓</span>
+        <div class="form-done" id="formDone" hidden>
+          <span class="form-done-mark" aria-hidden="true">✓</span>
           <h3>Заявка принята</h3>
           <p>Я свяжусь с вами, уточню пожелания и пришлю подходящие варианты. Если вопрос срочный, позвоните: +7 917 431-75-26.</p>
           <button class="btn btn-line" type="button" id="formAgain">Отправить ещё одну</button>
@@ -1082,7 +1082,7 @@ const LEAD_ENDPOINT = "";
     });
     if (idx !== lastIdx) {
       lastIdx = idx;
-      stages.forEach((s, i) => { s.classList.toggle('active', i === idx); s.classList.toggle('done', i < idx); });
+      stages.forEach((s, i) => { s.classList.toggle('is-active', i === idx); s.classList.toggle('is-done', i < idx); });
       if (nowEl) nowEl.innerHTML = '<span>' + String(idx + 1).padStart(2, '0') + '</span> ' + $('h3', stages[idx]).textContent;
     }
   }
